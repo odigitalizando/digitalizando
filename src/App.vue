@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col h-screen w-screen m-0 p-0">
     <FaedsatNavBarVue />
     <router-view />
   </div>
@@ -16,7 +16,7 @@ export default {
 </script>
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
