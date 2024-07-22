@@ -1,10 +1,15 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <HeroSectionFaedsat />
+  </div>
 </template>
 
 <script>
+import HeroSectionFaedsat from "../components/HeroSectionFaedsat.vue";
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    HeroSectionFaedsat,
+  },
 };
 </script>
