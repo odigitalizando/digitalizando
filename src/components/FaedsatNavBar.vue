@@ -8,7 +8,7 @@
         flex: true, // A barra terá display flex
         'flex-rown': true, // A barra será uma linha
         'justify-center': true, // centraliza o conteúdo na horizontal
-        'items-center py-4 mr-4 px-3': true, // centraliza o conteúdo na vertical e adiciona padding
+        'items-center py-2 mr-4 px-3': true, // centraliza o conteúdo na vertical e adiciona padding
         'w-full': true, // a barra ocupa toda a largura disponível
         'h-1/8': true, // a barra tem altura de 1/8 da altura da tela
       }"
@@ -34,7 +34,7 @@
             <img
               src="/Imgs/LgSiteLigth.png"
               alt="Faedsat"
-              class="justify-center items-center content-center w-full md:w-screen h-full"
+              class="justify-center items-center content-center w-3/4 md:w-3/4 h-full"
             />
           </div>
         </div>
@@ -44,21 +44,27 @@
       <div class="hidden md:flex flex-row justify-center w-1/3">
         <!-- Link "Início" -->
         <div class="flex w-1/3 p-2">
-          <p class="px-2 py-1 rounded-lg hover:font-black hover:text-sky-400">
+          <p
+            class="px-2 pt-2 rounded-lg hover:font-extrabold hover:text-sky-400"
+          >
             Início
           </p>
         </div>
 
         <!-- Link "Cursos" -->
         <div class="flex w-1/3 p-2">
-          <p class="px-2 py-1 rounded-lg hover:font-black hover:text-sky-400">
+          <p
+            class="px-2 pt-2 rounded-lg hover:font-extrabold hover:text-sky-400"
+          >
             Cursos
           </p>
         </div>
 
         <!-- Link "Sobre" -->
         <div class="flex w-1/3 p-2">
-          <p class="px-2 py-1 rounded-lg hover:font-black hover:text-sky-400">
+          <p
+            class="px-2 pt-2 rounded-lg hover:font-extrabold hover:text-sky-400"
+          >
             Saiba mais
           </p>
         </div>
@@ -95,9 +101,15 @@
       </div>
     </nav>
     <!-- Componente que contém o menu lateral, que é exibido quando o botão de menu é clicado -->
+    <!-- Usando transição para o menu lateral -->
     <BurguerMenu
       v-if="this.$store.state.isMenuOpen"
-      class="flex justify-center md:hidden mt-0"
+      class="flex justify-center md:hidden mt-0 transition-all duration-1000 ease-in-out transform"
+      :class="
+        this.$store.state.isMenuOpen
+          ? 'translate-x-0 opacity-100'
+          : '-translate-x-full opacity-0'
+      "
     />
   </div>
 </template>
@@ -125,7 +137,10 @@ export default {
     },
 
     toggleMenu() {
-      this.$store.commit("changeMenu"); // Muda o menu lateral
+      setTimeout(() => {
+        this.$store.commit("changeMenu");
+      }, 200);
+      // Muda o menu lateral
     },
 
     DropActive() {
