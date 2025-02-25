@@ -10,6 +10,10 @@
     background-color: $color;
 }
 
+@mixin gradient-to-black($color, $direction: 180deg) {
+    background: linear-gradient($direction, $color 0%, #000000 100%);
+  }
+  
 @mixin border-color($color) {
     /* definindo a cor da borda */
     border-color: $color;

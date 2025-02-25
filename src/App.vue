@@ -1,22 +1,35 @@
 <template>
-  <div class="flex flex-col h-screen w-screen m-0 p-0">
-    <FaedsatNavBarVue
-      class="fixed top-0 left-0 w-full bg-white shadow-md z-20"
-    />
-    <div class="flex-1 mt-20">
-      <!-- Adiciona margem superior para empurrar o conteúdo -->
-      <router-view />
-    </div>
+  <div class="flex flex-col">
+    <!-- Cabeçalho fixo -->
+    <FaedsatNavBarVue class="fixed top-0 left-0 w-full shadow-md z-20" />
+
+    <!-- Main com padding superior para evitar sobreposição do cabeçalho -->
+    <main class="flex-grow mt-20">
+      <!-- Conteúdo principal -->
+      <HomeView />
+    </main>
+
+    <!-- Botão de voltar ao topo -->
+    <ButtonTop />
+
+    <!-- Rodapé -->
+    <FaedsatFooter class="w-full pb-10 bg-gray-800 text-white" />
   </div>
 </template>
 
 <script>
 import FaedsatNavBarVue from "./components/FaedsatNavBar.vue";
+import ButtonTop from "./components/ButtonTop.vue";
+import FaedsatFooter from "./components/FaedsatFooter.vue";
+import HomeView from "./views/HomeView.vue";
 
 export default {
   name: "App",
   components: {
     FaedsatNavBarVue,
+    FaedsatFooter,
+    ButtonTop,
+    HomeView,
   },
 };
 </script>
@@ -26,19 +39,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+a {
+  color: rgb(187, 187, 187);
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
 </style>
